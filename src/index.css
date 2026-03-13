@@ -1,0 +1,29 @@
+body {
+  background: #000000;
+  overflow-x: hidden;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* ── Light mode global overrides ── */
+html.light-mode body {
+  background: #eef9fa;
+}
+
+/* Smooth color transitions on all elements */
+*, *::before, *::after {
+  transition: background-color 0.35s ease, border-color 0.35s ease, color 0.35s ease;
+}
+
+/* Prevent transition on transforms and opacity to keep animations snappy */
+.proj-card, .ct-link-card {
+  transition: background 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease !important;
+}
+
+/* Light mode scrollbar */
+html.light-mode ::-webkit-scrollbar-thumb {
+  background: rgba(66, 197, 201, 0.5);
+}
+
+html.light-mode ::-webkit-scrollbar-track {
+  background: rgba(66, 197, 201, 0.05);
+}
