@@ -4,6 +4,7 @@ import Intro   from './components/Intro'
 import About   from './components/About'
 import Skills  from './components/Skills'
 import Projects from './components/Projects'
+import Education from './components/Education'
 import Contact  from './components/Contact'
 import MotionBackground from './components/Motionbackground'
 
@@ -31,6 +32,10 @@ function App() {
 
         <section id="projects">
           <Projects />
+        </section>
+
+        <section id="education">
+          <Education />
         </section>
 
         <section id="contact">
