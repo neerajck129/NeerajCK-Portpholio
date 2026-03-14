@@ -142,11 +142,6 @@ const skillGroups = [
   },
 ];
 
-/* float animation variants — one per card so they drift independently */
-const floatKeyframes = [
-  'skillFloat0', 'skillFloat1', 'skillFloat2', 'skillFloat3',
-];
-
 /* ── Single skill chip ── */
 const SkillChip = ({ skill, color }) => {
   const chipRef = useRef();
@@ -277,11 +272,6 @@ const SkillCard = ({ group, cardIndex }) => {
     if (glowRef.current) gsap.to(glowRef.current, { opacity: 0, duration: 0.3 });
   }, []);
 
-  /* float animations defined per-card via CSS custom props */
-  const floatStyle = {
-    animation: `skillFloat${cardIndex % 4} ${6.5 + cardIndex * 0.8}s ease-in-out ${cardIndex * 0.4}s infinite`,
-  };
-
   return (
     <div
       ref={cardRef}
@@ -300,7 +290,6 @@ const SkillCard = ({ group, cardIndex }) => {
         willChange: 'transform',
         transformStyle: 'preserve-3d',
         boxShadow: '0 8px 32px rgba(0,0,0,0.6)',
-        ...floatStyle,
       }}
     >
       {/* Cursor spotlight */}
@@ -352,7 +341,7 @@ const SkillCard = ({ group, cardIndex }) => {
       </div>
 
       {/* Chips */}
-      <div className="chips-track" style={{
+      <div style={{
         display: 'flex', flexWrap: 'wrap',
         gap: '8px', position: 'relative', zIndex: 2,
       }}>
@@ -400,48 +389,6 @@ const Skills = () => {
   return (
     <div ref={container} id="skills" style={{ paddingTop: '70px' }}>
 
-      {/* Float keyframes injected once */}
-      <style>{`
-        .skills-grid {
-          grid-template-columns: repeat(2, 1fr) !important;
-        }
-        @media (max-width: 640px) {
-          .skills-grid {
-            grid-template-columns: 1fr !important;
-          }
-          .chips-track {
-            flex-wrap: nowrap !important;
-            overflow-x: auto !important;
-            overflow-y: visible !important;
-            -webkit-overflow-scrolling: touch !important;
-            scrollbar-width: none !important;
-            padding-bottom: 4px !important;
-          }
-          .chips-track::-webkit-scrollbar { display: none; }
-          .chips-track > * {
-            width: auto !important;
-            min-width: 80px !important;
-          }
-        }
-        @keyframes skillFloat0 {
-          0%,100% { transform: translateY(0px) rotate(-0.8deg); }
-          50%      { transform: translateY(-10px) rotate(0.4deg); }
-        }
-        @keyframes skillFloat1 {
-          0%,100% { transform: translateY(0px) rotate(0.8deg); }
-          50%      { transform: translateY(-14px) rotate(-0.4deg); }
-        }
-        @keyframes skillFloat2 {
-          0%,100% { transform: translateY(0px) rotate(0deg); }
-          50%      { transform: translateY(-8px) rotate(0.6deg); }
-        }
-        @keyframes skillFloat3 {
-          0%,100% { transform: translateY(0px) rotate(-0.5deg); }
-          50%      { transform: translateY(-12px) rotate(0.3deg); }
-        }
-        .skill-card:hover { animation-play-state: paused !important; }
-      `}</style>
-
       {/* Header — identical to Projects & Education */}
       <div style={{ padding: '0 clamp(24px, 8vw, 100px) 32px' }}>
         <p className="skills-label" style={{
@@ -467,20 +414,35 @@ const Skills = () => {
         </h1>
       </div>
 
-      {/* 2-col grid on desktop, 1-col on mobile */}
+      {/* 2-col grid on desktop, horizontal scroll on mobile — same as Projects.jsx */}
       <div
         className="skills-grid"
         style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(2, 1fr)',
+          display: 'flex',
           gap: '22px',
+          overflowX: 'auto',
+          overflowY: 'visible',
           padding: '10px clamp(24px, 8vw, 100px) 36px',
+          WebkitOverflowScrolling: 'touch',
+          scrollbarWidth: 'thin',
+          scrollbarColor: `${CYAN} transparent`,
         }}
       >
         {skillGroups.map((group, i) => (
           <SkillCard key={i} group={group} cardIndex={i} />
         ))}
       </div>
+
+      <style>{`
+        .skills-grid::-webkit-scrollbar { height: 3px; }
+        .skills-grid::-webkit-scrollbar-track { background: transparent; }
+        .skills-grid::-webkit-scrollbar-thumb { background: ${CYAN}; border-radius: 10px; }
+        .skill-card { width: clamp(300px, 78vw, 420px); flex-shrink: 0; }
+        @media (min-width: 900px) {
+          .skills-grid { flex-wrap: wrap; overflow-x: visible; }
+          .skill-card { width: calc(50% - 11px); }
+        }
+      `}</style>
     </div>
   );
 };
