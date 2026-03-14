@@ -352,7 +352,7 @@ const SkillCard = ({ group, cardIndex }) => {
       </div>
 
       {/* Chips */}
-      <div style={{
+      <div className="chips-track" style={{
         display: 'flex', flexWrap: 'wrap',
         gap: '8px', position: 'relative', zIndex: 2,
       }}>
@@ -408,6 +408,19 @@ const Skills = () => {
         @media (max-width: 640px) {
           .skills-grid {
             grid-template-columns: 1fr !important;
+          }
+          .chips-track {
+            flex-wrap: nowrap !important;
+            overflow-x: auto !important;
+            overflow-y: visible !important;
+            -webkit-overflow-scrolling: touch !important;
+            scrollbar-width: none !important;
+            padding-bottom: 4px !important;
+          }
+          .chips-track::-webkit-scrollbar { display: none; }
+          .chips-track > * {
+            width: auto !important;
+            min-width: 80px !important;
           }
         }
         @keyframes skillFloat0 {
