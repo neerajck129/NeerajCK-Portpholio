@@ -74,6 +74,7 @@ import React, { useRef, useCallback } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import { useGSAP } from '@gsap/react';
+import Cursorglow from "./Cursorglow";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -275,7 +276,7 @@ const SkillCard = ({ group, cardIndex }) => {
   return (
     <div
       ref={cardRef}
-      className={`skill-card skill-card-${cardIndex}`}
+      className={`skill-card skill-card-${cardIndex} glow-disabled `}
       onMouseMove={onMouseMove}
       onMouseEnter={onMouseEnter}
       onMouseLeave={onMouseLeave}
@@ -387,10 +388,10 @@ const Skills = () => {
   }, { scope: container });
 
   return (
-    <div ref={container} id="skills" style={{ paddingTop: '70px' }}>
+    <div ref={container} id="skills"  style={{ paddingTop: '70px' }}>
 
       {/* Header — identical to Projects & Education */}
-      <div style={{ padding: '0 clamp(24px, 8vw, 100px) 32px' }}>
+      <div  style={{ padding: '0 clamp(24px, 8vw, 100px) 32px' }}>
         <p className="skills-label" style={{
           color: CYAN, fontSize: '11px', letterSpacing: '3.5px',
           textTransform: 'uppercase', fontWeight: '700',

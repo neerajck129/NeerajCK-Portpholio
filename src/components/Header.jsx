@@ -222,7 +222,7 @@ const Header = () => {
           <div className='flex items-center gap-3'>
 
             {/* Theme toggle */}
-            <button
+            {/* <button
               onClick={toggleTheme}
               aria-label="Toggle theme"
               className={`
@@ -238,7 +238,7 @@ const Header = () => {
                 icon={isDark ? faSun : faMoon}
                 className={`theme-icon text-base transition-colors duration-300 ${isDark ? 'text-[#42C5C9]' : 'text-gray-600'}`}
               />
-            </button>
+            </button> */}
 
             {/* Hamburger — mobile only */}
             <button
