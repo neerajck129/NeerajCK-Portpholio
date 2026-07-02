@@ -18,7 +18,7 @@ const projects = [
     description: 'Full-stack sneaker store with JWT auth, cart, Razorpay payments & admin dashboard. Deployed on Vercel + Render.',
     tech: ['React', 'Node.js', 'MongoDB', 'Razorpay'],
     github: 'https://github.com/neerajck129/KicksShoeStore',
-    live: 'kicks-shoe-store-six.vercel.app',
+    live: 'https://kicks-shoe-store-six.vercel.app',
     image: './screenshots/kiks.jpg',
   },
   {
@@ -28,7 +28,7 @@ const projects = [
     description: 'FIFA World Cup final prediction app with live scoring, JWT admin dashboard, Recharts analytics & Telegram bot alerts.',
     tech: ['React', 'Express', 'MongoDB', 'Tailwind CSS'],
     github: 'https://github.com/neerajck129/WC26',
-    live: 'wc-26-beige.vercel.app',
+    live: 'https://wc-26-beige.vercel.app',
     image: './screenshots/worldcup2026.jpg',
 },
   {
@@ -38,7 +38,7 @@ const projects = [
     description: 'This portfolio — React 19, GSAP animations, cursor glow & ScrollTrigger effects.',
     tech: ['React', 'GSAP', 'FontAwesome', 'Vite'],
     github: 'https://github.com/neerajck129/NeerajCK-Portpholio',
-    live: 'neerajck.vercel.app',
+    live: 'https://neerajck.vercel.app',
     image: './screenshots/portfolio.jpg',
 },
   // {
