@@ -39,7 +39,7 @@ const projects = [
   tech: ['React', 'GSAP', 'ScrollTrigger', 'Tailwind CSS', 'Vite'],
   github: 'https://github.com/neerajck129/Align',
   live: 'https://alignarchitecture.vercel.app/',
-  image: './screenshots/align.jpg',
+  image: './screenshots/Align.jpg',
 },
   {
     title: 'Portfolio Website',
