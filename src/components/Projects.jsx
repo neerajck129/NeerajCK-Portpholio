@@ -31,6 +31,16 @@ const projects = [
     live: 'https://wc-26-beige.vercel.app',
     image: './screenshots/worldcup2026.jpg',
 },
+ {
+  title: 'Align',
+  category: 'Frontend',
+  tag: 'React',
+  description: 'A premium architecture & interior design experience built with React and GSAP, featuring cinematic scroll animations, pinned sections, video backgrounds, and fully responsive interactions.',
+  tech: ['React', 'GSAP', 'ScrollTrigger', 'Tailwind CSS', 'Vite'],
+  github: 'https://github.com/neerajck129/Align',
+  live: 'https://alignarchitecture.vercel.app/',
+  image: './screenshots/align.jpg',
+},
   {
     title: 'Portfolio Website',
     category: 'Frontend',
